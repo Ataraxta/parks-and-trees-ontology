@@ -1,0 +1,222 @@
+Prefix(:=<http://www.OurNonExistingOntologyDomain.org/ontology#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.OurNonExistingOntologyDomain.org/ontology>
+Annotation(<http://purl.org/dc/terms/license> "creative commomns https://creativecommons.org/licenses/by/2.0/legalcode"@en)
+Annotation(<http://purl.org/dc/terms/license> "creative commons. https://creativecommons.org/licenses/by/2.0/legalcode"@es)
+Annotation(rdfs:isDefinedBy "Definido por"@es)
+Annotation(rdfs:isDefinedBy "Is Defined By"@en)
+Annotation(<https://purl.org/dc/terms/title> "Ontology, Parks and Gardens of Madrid"@en)
+Annotation(<https://purl.org/dc/terms/title> "Ontología Parques y Jardines de Madrid"@es)
+
+Declaration(Class(<http://purl.org/ontology/wo/Species>))
+Declaration(Class(:District))
+Declaration(Class(:Park))
+Declaration(Class(:PrivatePark))
+Declaration(Class(:PublicPark))
+Declaration(Class(:TreeSpecie))
+Declaration(Class(<http://www.opengis.net/ont/gml#PolygonPatch>))
+Declaration(ObjectProperty(:hasPart))
+Declaration(ObjectProperty(:partOf))
+Declaration(ObjectProperty(<http://www.opengis.net/ont/geosparql#sfWithin>))
+Declaration(DataProperty(:adress))
+Declaration(DataProperty(:code))
+Declaration(DataProperty(:commonName))
+Declaration(DataProperty(:genus))
+Declaration(DataProperty(:scientificName))
+Declaration(DataProperty(:surfaceArea))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/license>))
+Declaration(AnnotationProperty(<https://purl.org/dc/terms/title>))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: :hasPart (tieneParte)
+
+AnnotationAssertion(rdfs:comment :hasPart "Represents a class having another as a component part. A park has a tree as a part"@en)
+AnnotationAssertion(rdfs:comment :hasPart "Tiene a otra clase como componente. Un parque tiene un árbol como parte"@es)
+AnnotationAssertion(rdfs:label :hasPart "hasPart"@en)
+AnnotationAssertion(rdfs:label :hasPart "tieneParte"@es)
+SubObjectPropertyOf(:hasPart owl:topObjectProperty)
+InverseObjectProperties(:hasPart :partOf)
+TransitiveObjectProperty(:hasPart)
+ObjectPropertyDomain(:hasPart owl:Thing)
+ObjectPropertyRange(:hasPart owl:Thing)
+
+# Object Property: :partOf (parteDe)
+
+AnnotationAssertion(rdfs:comment :partOf "Representa que una clase sea parte de otra. Un árbol es parte de un parque."@es)
+AnnotationAssertion(rdfs:comment :partOf "Represents a class being a part of another class. A tree is part of a park"@en)
+AnnotationAssertion(rdfs:label :partOf "partOf"@en)
+AnnotationAssertion(rdfs:label :partOf "parteDe"@es)
+SubObjectPropertyOf(:partOf owl:topObjectProperty)
+TransitiveObjectProperty(:partOf)
+ObjectPropertyDomain(:partOf owl:Thing)
+ObjectPropertyRange(:partOf owl:Thing)
+
+# Object Property: <http://www.opengis.net/ont/geosparql#sfWithin> (within)
+
+AnnotationAssertion(rdfs:comment <http://www.opengis.net/ont/geosparql#sfWithin> "Existe si el subobjeto SpatialObject esta contenido espacialmente dentro del otro objeto espacial. 
+ DE-9IM: T*F**F***"@es)
+AnnotationAssertion(rdfs:comment <http://www.opengis.net/ont/geosparql#sfWithin> "Exists if the subject SpatialObject is spatially within the 
+      object SpatialObject. DE-9IM: T*F**F***"@en)
+AnnotationAssertion(rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#sfWithin> "http://www.opengis.net/ont/geosparql#sfWithin"@en)
+AnnotationAssertion(rdfs:label <http://www.opengis.net/ont/geosparql#sfWithin> "Dentro de"@es)
+AnnotationAssertion(rdfs:label <http://www.opengis.net/ont/geosparql#sfWithin> "within"@en)
+TransitiveObjectProperty(<http://www.opengis.net/ont/geosparql#sfWithin>)
+ObjectPropertyDomain(<http://www.opengis.net/ont/geosparql#sfWithin> <http://www.opengis.net/ont/gml#PolygonPatch>)
+ObjectPropertyRange(<http://www.opengis.net/ont/geosparql#sfWithin> <http://www.opengis.net/ont/gml#PolygonPatch>)
+
+# Object Property: owl:topObjectProperty (owl:topObjectProperty)
+
+ObjectPropertyDomain(owl:topObjectProperty :District)
+ObjectPropertyDomain(owl:topObjectProperty :Park)
+ObjectPropertyDomain(owl:topObjectProperty :TreeSpecie)
+ObjectPropertyRange(owl:topObjectProperty :District)
+ObjectPropertyRange(owl:topObjectProperty :Park)
+ObjectPropertyRange(owl:topObjectProperty :TreeSpecie)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :adress (adress)
+
+AnnotationAssertion(rdfs:comment :adress "Adress of the park"@en)
+AnnotationAssertion(rdfs:comment :adress "Dirección del parque"@es)
+AnnotationAssertion(rdfs:label :adress "adress"@en)
+AnnotationAssertion(rdfs:label :adress "dirección"@es)
+SubDataPropertyOf(:adress owl:topDataProperty)
+DataPropertyDomain(:adress :Park)
+DataPropertyRange(:adress xsd:string)
+
+# Data Property: :code (code)
+
+AnnotationAssertion(rdfs:comment :code "Código numérico que identifica el distrito de madrid. Cada parque tiene un único código."@es)
+AnnotationAssertion(rdfs:comment :code "Unique numeric identifier for each of the districts of the city."@en)
+AnnotationAssertion(rdfs:label :code "code"@en)
+AnnotationAssertion(rdfs:label :code "código"@es)
+SubDataPropertyOf(:code owl:topDataProperty)
+DataPropertyDomain(:code :District)
+DataPropertyRange(:code xsd:long)
+
+# Data Property: :commonName (common name)
+
+AnnotationAssertion(rdfs:comment :commonName "Common name in plain language by which the tree species is often referred. There may be more than one."@en)
+AnnotationAssertion(rdfs:comment :commonName "Nombre en lenguaje común por el que una especie de árbol es denominado normalmemente. Puede haber más de uno."@es)
+AnnotationAssertion(rdfs:label :commonName "common name"@en)
+AnnotationAssertion(rdfs:label :commonName "nombre común"@es)
+EquivalentDataProperties(:commonName :scientificName)
+SubDataPropertyOf(:commonName owl:topDataProperty)
+DataPropertyDomain(:commonName :TreeSpecie)
+DataPropertyRange(:commonName xsd:string)
+
+# Data Property: :genus (genus)
+
+AnnotationAssertion(rdfs:comment :genus "Término taxonómico que agrupa un conjunto de especies relacionadas. Varias especies de árbols pertenecen a un mismo género."@es)
+AnnotationAssertion(rdfs:label :genus "genus"@en)
+AnnotationAssertion(rdfs:label :genus "género"@es)
+AnnotationAssertion(owl:backwardCompatibleWith :genus "Taxonomic term, referring to several similar tree species, closely related. Several tree species may have the same genus."@en)
+SubDataPropertyOf(:genus owl:topDataProperty)
+DataPropertyDomain(:genus :TreeSpecie)
+DataPropertyRange(:genus xsd:string)
+
+# Data Property: :scientificName (nombre científico)
+
+AnnotationAssertion(rdfs:comment :scientificName "Latin scientific name of the tree specie. It is unique and part of the taxonomical classification of the tree."@en)
+AnnotationAssertion(rdfs:comment :scientificName "Nombre científico en Latín, que identifica de forma única a la especie de árbol. Es un término taxonómico."@es)
+AnnotationAssertion(rdfs:label :scientificName "nombre científico"@es)
+AnnotationAssertion(rdfs:label :scientificName "scientific name"@en)
+SubDataPropertyOf(:scientificName owl:topDataProperty)
+DataPropertyDomain(:scientificName :TreeSpecie)
+DataPropertyRange(:scientificName xsd:string)
+
+# Data Property: :surfaceArea (superficie)
+
+AnnotationAssertion(rdfs:comment :surfaceArea "Surface area in m²"@en)
+AnnotationAssertion(rdfs:comment :surfaceArea "Área en m²"@es)
+AnnotationAssertion(rdfs:label :surfaceArea "superficie"@es)
+AnnotationAssertion(rdfs:label :surfaceArea "surface area"@en)
+SubDataPropertyOf(:surfaceArea owl:topDataProperty)
+DataPropertyDomain(:surfaceArea <http://www.opengis.net/ont/gml#PolygonPatch>)
+DataPropertyRange(:surfaceArea xsd:float)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://purl.org/ontology/wo/Species> (species)
+
+AnnotationAssertion(rdfs:comment <http://purl.org/ontology/wo/Species> "Clase genérica para representar especia, importada de bbc wildlife ontology"@es)
+AnnotationAssertion(rdfs:comment <http://purl.org/ontology/wo/Species> "Generic class defining a biological species, imported from BBC wildlife ontology"@en)
+AnnotationAssertion(rdfs:label <http://purl.org/ontology/wo/Species> "especie"@es)
+AnnotationAssertion(rdfs:label <http://purl.org/ontology/wo/Species> "species"@en)
+EquivalentClasses(<http://purl.org/ontology/wo/Species> :TreeSpecie)
+
+# Class: :District (Distrito)
+
+AnnotationAssertion(rdfs:comment :District "Cada uno de los distritos de la ciudad de Madrid"@es)
+AnnotationAssertion(rdfs:comment :District "Each of the districts of Madrid"@en)
+AnnotationAssertion(rdfs:label :District "District"@en)
+AnnotationAssertion(rdfs:label :District "Distrito"@es)
+EquivalentClasses(:District ObjectSomeValuesFrom(:hasPart :Park))
+SubClassOf(:District <http://www.opengis.net/ont/gml#PolygonPatch>)
+
+# Class: :Park (Park)
+
+AnnotationAssertion(rdfs:comment :Park "It represents a park"@en)
+AnnotationAssertion(rdfs:comment :Park "Representa un parque"@es)
+AnnotationAssertion(rdfs:label :Park "Park"@en)
+AnnotationAssertion(rdfs:label :Park "Parque"@es)
+EquivalentClasses(:Park ObjectSomeValuesFrom(:hasPart :TreeSpecie))
+EquivalentClasses(:Park ObjectExactCardinality(1 :partOf :District))
+EquivalentClasses(:Park ObjectExactCardinality(1 <http://www.opengis.net/ont/geosparql#sfWithin> :District))
+SubClassOf(:Park <http://www.opengis.net/ont/gml#PolygonPatch>)
+
+# Class: :PrivatePark (Parque privado)
+
+AnnotationAssertion(rdfs:comment :PrivatePark "A park, not administered by the city council"@en)
+AnnotationAssertion(rdfs:comment :PrivatePark "Un parque que no pertene al ayuntamiento"@es)
+AnnotationAssertion(rdfs:label :PrivatePark "Parque privado"@es)
+AnnotationAssertion(rdfs:label :PrivatePark "Private park"@en)
+SubClassOf(:PrivatePark :Park)
+DisjointClasses(:PrivatePark :PublicPark)
+
+# Class: :PublicPark (parque público)
+
+AnnotationAssertion(rdfs:comment :PublicPark "A park, property of the city council"@en)
+AnnotationAssertion(rdfs:comment :PublicPark "Un parque que pertenece al ayuntamiento"@es)
+AnnotationAssertion(rdfs:label :PublicPark "Public park"@en)
+AnnotationAssertion(rdfs:label :PublicPark "parque público"@es)
+SubClassOf(:PublicPark :Park)
+
+# Class: :TreeSpecie (Tree specie)
+
+AnnotationAssertion(rdfs:comment :TreeSpecie "A particula tree specie"@en)
+AnnotationAssertion(rdfs:comment :TreeSpecie "Una especie concreta de árbol"@es)
+AnnotationAssertion(rdfs:label :TreeSpecie "Especie de árbol"@es)
+AnnotationAssertion(rdfs:label :TreeSpecie "Tree specie"@en)
+EquivalentClasses(:TreeSpecie ObjectExactCardinality(1 :partOf :Park))
+
+# Class: <http://www.opengis.net/ont/gml#PolygonPatch> (Polygon Patch)
+
+AnnotationAssertion(rdfs:comment <http://www.opengis.net/ont/gml#PolygonPatch> "A poligonal area, to descibe a district or a park"@en)
+AnnotationAssertion(rdfs:comment <http://www.opengis.net/ont/gml#PolygonPatch> "Área poligonal, que desribe la forma del parque o del distrito"@es)
+AnnotationAssertion(rdfs:isDefinedBy <http://www.opengis.net/ont/gml#PolygonPatch> "Definida por: http://www.opengis.net/ont/gml"@es)
+AnnotationAssertion(rdfs:isDefinedBy <http://www.opengis.net/ont/gml#PolygonPatch> "Is deffined by: http://www.opengis.net/ont/gml"@en)
+AnnotationAssertion(rdfs:label <http://www.opengis.net/ont/gml#PolygonPatch> "Polygon Patch"@en)
+AnnotationAssertion(rdfs:label <http://www.opengis.net/ont/gml#PolygonPatch> "Área Poligonal"@es)
+
+
+DataPropertyAssertion(:code _:genid2147483658 "")
+AnnotationAssertion(rdfs:comment _:genid2147483657 _:genid2147483656)
+)
