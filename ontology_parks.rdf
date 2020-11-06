@@ -1,0 +1,352 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.OurNonExistingOntologyDomain.org/ontology#"
+     xml:base="http://www.OurNonExistingOntologyDomain.org/ontology"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="https://purl.org/dc/terms/"
+     xmlns:terms1="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology">
+        <terms1:license xml:lang="en">creative commomns https://creativecommons.org/licenses/by/2.0/legalcode</terms1:license>
+        <terms1:license xml:lang="es">creative commons. https://creativecommons.org/licenses/by/2.0/legalcode</terms1:license>
+        <rdfs:isDefinedBy xml:lang="es">Definido por</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">Is Defined By</rdfs:isDefinedBy>
+        <terms:title xml:lang="en">Ontology, Parks and Gardens of Madrid</terms:title>
+        <terms:title xml:lang="es">Ontología Parques y Jardines de Madrid</terms:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- https://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="https://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#hasPart">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#partOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">Represents a class having another as a component part. A park has a tree as a part</rdfs:comment>
+        <rdfs:comment xml:lang="es">Tiene a otra clase como componente. Un parque tiene un árbol como parte</rdfs:comment>
+        <rdfs:label xml:lang="en">hasPart</rdfs:label>
+        <rdfs:label xml:lang="es">tieneParte</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#partOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#partOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="es">Representa que una clase sea parte de otra. Un árbol es parte de un parque.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a class being a part of another class. A tree is part of a park</rdfs:comment>
+        <rdfs:label xml:lang="en">partOf</rdfs:label>
+        <rdfs:label xml:lang="es">parteDe</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#sfWithin -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#sfWithin">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/gml#PolygonPatch"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/gml#PolygonPatch"/>
+        <rdfs:comment xml:lang="es">Existe si el subobjeto SpatialObject esta contenido espacialmente dentro del otro objeto espacial. 
+ DE-9IM: T*F**F***</rdfs:comment>
+        <rdfs:comment xml:lang="en">Exists if the subject SpatialObject is spatially within the 
+      object SpatialObject. DE-9IM: T*F**F***</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">http://www.opengis.net/ont/geosparql#sfWithin</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="es">Dentro de</rdfs:label>
+        <rdfs:label xml:lang="en">within</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+        <rdfs:domain rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#District"/>
+        <rdfs:domain rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#Park"/>
+        <rdfs:domain rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#TreeSpecie"/>
+        <rdfs:range rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#District"/>
+        <rdfs:range rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#Park"/>
+        <rdfs:range rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#TreeSpecie"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#adress -->
+
+    <owl:DatatypeProperty rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#adress">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#Park"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Adress of the park</rdfs:comment>
+        <rdfs:comment xml:lang="es">Dirección del parque</rdfs:comment>
+        <rdfs:label xml:lang="en">adress</rdfs:label>
+        <rdfs:label xml:lang="es">dirección</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#code -->
+
+    <owl:DatatypeProperty rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#code">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#District"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+        <rdfs:comment xml:lang="es">Código numérico que identifica el distrito de madrid. Cada parque tiene un único código.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Unique numeric identifier for each of the districts of the city.</rdfs:comment>
+        <rdfs:label xml:lang="en">code</rdfs:label>
+        <rdfs:label xml:lang="es">código</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#commonName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#commonName">
+        <owl:equivalentProperty rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#scientificName"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#TreeSpecie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Common name in plain language by which the tree species is often referred. There may be more than one.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Nombre en lenguaje común por el que una especie de árbol es denominado normalmemente. Puede haber más de uno.</rdfs:comment>
+        <rdfs:label xml:lang="en">common name</rdfs:label>
+        <rdfs:label xml:lang="es">nombre común</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#genus -->
+
+    <owl:DatatypeProperty rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#genus">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#TreeSpecie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Término taxonómico que agrupa un conjunto de especies relacionadas. Varias especies de árbols pertenecen a un mismo género.</rdfs:comment>
+        <rdfs:label xml:lang="en">genus</rdfs:label>
+        <rdfs:label xml:lang="es">género</rdfs:label>
+        <owl:backwardCompatibleWith xml:lang="en">Taxonomic term, referring to several similar tree species, closely related. Several tree species may have the same genus.</owl:backwardCompatibleWith>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#scientificName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#scientificName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#TreeSpecie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Latin scientific name of the tree specie. It is unique and part of the taxonomical classification of the tree.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Nombre científico en Latín, que identifica de forma única a la especie de árbol. Es un término taxonómico.</rdfs:comment>
+        <rdfs:label xml:lang="es">nombre científico</rdfs:label>
+        <rdfs:label xml:lang="en">scientific name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#surfaceArea -->
+
+    <owl:DatatypeProperty rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#surfaceArea">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/gml#PolygonPatch"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="en">Surface area in m²</rdfs:comment>
+        <rdfs:comment xml:lang="es">Área en m²</rdfs:comment>
+        <rdfs:label xml:lang="es">superficie</rdfs:label>
+        <rdfs:label xml:lang="en">surface area</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/wo/Species -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/wo/Species">
+        <owl:equivalentClass rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#TreeSpecie"/>
+        <rdfs:comment xml:lang="es">Clase genérica para representar especia, importada de bbc wildlife ontology</rdfs:comment>
+        <rdfs:comment xml:lang="en">Generic class defining a biological species, imported from BBC wildlife ontology</rdfs:comment>
+        <rdfs:label xml:lang="es">especie</rdfs:label>
+        <rdfs:label xml:lang="en">species</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#District -->
+
+    <owl:Class rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#District">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#hasPart"/>
+                <owl:someValuesFrom rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#Park"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/gml#PolygonPatch"/>
+        <rdfs:comment xml:lang="es">Cada uno de los distritos de la ciudad de Madrid</rdfs:comment>
+        <rdfs:comment xml:lang="en">Each of the districts of Madrid</rdfs:comment>
+        <rdfs:label xml:lang="en">District</rdfs:label>
+        <rdfs:label xml:lang="es">Distrito</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#Park -->
+
+    <owl:Class rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#Park">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#hasPart"/>
+                <owl:someValuesFrom rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#TreeSpecie"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#partOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#District"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#District"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/gml#PolygonPatch"/>
+        <rdfs:comment xml:lang="en">It represents a park</rdfs:comment>
+        <rdfs:comment xml:lang="es">Representa un parque</rdfs:comment>
+        <rdfs:label xml:lang="en">Park</rdfs:label>
+        <rdfs:label xml:lang="es">Parque</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#PrivatePark -->
+
+    <owl:Class rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#PrivatePark">
+        <rdfs:subClassOf rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#Park"/>
+        <owl:disjointWith rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#PublicPark"/>
+        <rdfs:comment xml:lang="en">A park, not administered by the city council</rdfs:comment>
+        <rdfs:comment xml:lang="es">Un parque que no pertene al ayuntamiento</rdfs:comment>
+        <rdfs:label xml:lang="es">Parque privado</rdfs:label>
+        <rdfs:label xml:lang="en">Private park</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#PublicPark -->
+
+    <owl:Class rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#PublicPark">
+        <rdfs:subClassOf rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#Park"/>
+        <rdfs:comment xml:lang="en">A park, property of the city council</rdfs:comment>
+        <rdfs:comment xml:lang="es">Un parque que pertenece al ayuntamiento</rdfs:comment>
+        <rdfs:label xml:lang="en">Public park</rdfs:label>
+        <rdfs:label xml:lang="es">parque público</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.OurNonExistingOntologyDomain.org/ontology#TreeSpecie -->
+
+    <owl:Class rdf:about="http://www.OurNonExistingOntologyDomain.org/ontology#TreeSpecie">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#partOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.OurNonExistingOntologyDomain.org/ontology#Park"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A particula tree specie</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una especie concreta de árbol</rdfs:comment>
+        <rdfs:label xml:lang="es">Especie de árbol</rdfs:label>
+        <rdfs:label xml:lang="en">Tree specie</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/gml#PolygonPatch -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/gml#PolygonPatch">
+        <rdfs:comment xml:lang="en">A poligonal area, to descibe a district or a park</rdfs:comment>
+        <rdfs:comment xml:lang="es">Área poligonal, que desribe la forma del parque o del distrito</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="es">Definida por: http://www.opengis.net/ont/gml</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy xml:lang="en">Is deffined by: http://www.opengis.net/ont/gml</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Polygon Patch</rdfs:label>
+        <rdfs:label xml:lang="es">Área Poligonal</rdfs:label>
+    </owl:Class>
+    <rdf:Description>
+        <rdfs:comment>
+            <rdf:Description/>
+        </rdfs:comment>
+    </rdf:Description>
+    <rdf:Description>
+        <code></code>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

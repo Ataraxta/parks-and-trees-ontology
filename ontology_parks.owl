@@ -1,0 +1,249 @@
+@prefix : <http://www.OurNonExistingOntologyDomain.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.OurNonExistingOntologyDomain.org/ontology> .
+
+<http://www.OurNonExistingOntologyDomain.org/ontology> rdf:type owl:Ontology ;
+                                                        <http://purl.org/dc/terms/license> "creative commomns https://creativecommons.org/licenses/by/2.0/legalcode"@en ,
+                                                                                           "creative commons. https://creativecommons.org/licenses/by/2.0/legalcode"@es ;
+                                                        rdfs:isDefinedBy "Definido por"@es ,
+                                                                         "Is Defined By"@en ;
+                                                        <https://purl.org/dc/terms/title> "Ontology, Parks and Gardens of Madrid"@en ,
+                                                                                          "Ontología Parques y Jardines de Madrid"@es .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.org/dc/terms/title
+<https://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         owl:inverseOf :partOf ;
+         rdf:type owl:TransitiveProperty ;
+         rdfs:domain owl:Thing ;
+         rdfs:range owl:Thing ;
+         rdfs:comment "Represents a class having another as a component part. A park has a tree as a part"@en ,
+                      "Tiene a otra clase como componente. Un parque tiene un árbol como parte"@es ;
+         rdfs:label "hasPart"@en ,
+                    "tieneParte"@es .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#partOf
+:partOf rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdf:type owl:TransitiveProperty ;
+        rdfs:domain owl:Thing ;
+        rdfs:range owl:Thing ;
+        rdfs:comment "Representa que una clase sea parte de otra. Un árbol es parte de un parque."@es ,
+                     "Represents a class being a part of another class. A tree is part of a park"@en ;
+        rdfs:label "partOf"@en ,
+                   "parteDe"@es .
+
+
+###  http://www.opengis.net/ont/geosparql#sfWithin
+<http://www.opengis.net/ont/geosparql#sfWithin> rdf:type owl:ObjectProperty ,
+                                                         owl:TransitiveProperty ;
+                                                rdfs:domain <http://www.opengis.net/ont/gml#PolygonPatch> ;
+                                                rdfs:range <http://www.opengis.net/ont/gml#PolygonPatch> ;
+                                                rdfs:comment """Existe si el subobjeto SpatialObject esta contenido espacialmente dentro del otro objeto espacial. 
+ DE-9IM: T*F**F***"""@es ,
+                                                             """Exists if the subject SpatialObject is spatially within the 
+      object SpatialObject. DE-9IM: T*F**F***"""@en ;
+                                                rdfs:isDefinedBy "http://www.opengis.net/ont/geosparql#sfWithin"@en ;
+                                                rdfs:label "Dentro de"@es ,
+                                                           "within"@en .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:domain :District ,
+                                  :Park ,
+                                  :TreeSpecie ;
+                      rdfs:range :District ,
+                                 :Park ,
+                                 :TreeSpecie .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#adress
+:adress rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:domain :Park ;
+        rdfs:range xsd:string ;
+        rdfs:comment "Adress of the park"@en ,
+                     "Dirección del parque"@es ;
+        rdfs:label "adress"@en ,
+                   "dirección"@es .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#code
+:code rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :District ;
+      rdfs:range xsd:long ;
+      rdfs:comment "Código numérico que identifica el distrito de madrid. Cada parque tiene un único código."@es ,
+                   "Unique numeric identifier for each of the districts of the city."@en ;
+      rdfs:label "code"@en ,
+                 "código"@es .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#commonName
+:commonName rdf:type owl:DatatypeProperty ;
+            owl:equivalentProperty :scientificName ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :TreeSpecie ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Common name in plain language by which the tree species is often referred. There may be more than one."@en ,
+                         "Nombre en lenguaje común por el que una especie de árbol es denominado normalmemente. Puede haber más de uno."@es ;
+            rdfs:label "common name"@en ,
+                       "nombre común"@es .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#genus
+:genus rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :TreeSpecie ;
+       rdfs:range xsd:string ;
+       rdfs:comment "Término taxonómico que agrupa un conjunto de especies relacionadas. Varias especies de árbols pertenecen a un mismo género."@es ;
+       rdfs:label "genus"@en ,
+                  "género"@es ;
+       owl:backwardCompatibleWith "Taxonomic term, referring to several similar tree species, closely related. Several tree species may have the same genus."@en .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#scientificName
+:scientificName rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :TreeSpecie ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Latin scientific name of the tree specie. It is unique and part of the taxonomical classification of the tree."@en ,
+                             "Nombre científico en Latín, que identifica de forma única a la especie de árbol. Es un término taxonómico."@es ;
+                rdfs:label "nombre científico"@es ,
+                           "scientific name"@en .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#surfaceArea
+:surfaceArea rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain <http://www.opengis.net/ont/gml#PolygonPatch> ;
+             rdfs:range xsd:float ;
+             rdfs:comment "Surface area in m²"@en ,
+                          "Área en m²"@es ;
+             rdfs:label "superficie"@es ,
+                        "surface area"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/ontology/wo/Species
+<http://purl.org/ontology/wo/Species> rdf:type owl:Class ;
+                                      owl:equivalentClass :TreeSpecie ;
+                                      rdfs:comment "Clase genérica para representar especia, importada de bbc wildlife ontology"@es ,
+                                                   "Generic class defining a biological species, imported from BBC wildlife ontology"@en ;
+                                      rdfs:label "especie"@es ,
+                                                 "species"@en .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#District
+:District rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasPart ;
+                                owl:someValuesFrom :Park
+                              ] ;
+          rdfs:subClassOf <http://www.opengis.net/ont/gml#PolygonPatch> ;
+          rdfs:comment "Cada uno de los distritos de la ciudad de Madrid"@es ,
+                       "Each of the districts of Madrid"@en ;
+          rdfs:label "District"@en ,
+                     "Distrito"@es .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#Park
+:Park rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasPart ;
+                            owl:someValuesFrom :TreeSpecie
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :partOf ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :District
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://www.opengis.net/ont/geosparql#sfWithin> ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :District
+                          ] ;
+      rdfs:subClassOf <http://www.opengis.net/ont/gml#PolygonPatch> ;
+      rdfs:comment "It represents a park"@en ,
+                   "Representa un parque"@es ;
+      rdfs:label "Park"@en ,
+                 "Parque"@es .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#PrivatePark
+:PrivatePark rdf:type owl:Class ;
+             rdfs:subClassOf :Park ;
+             owl:disjointWith :PublicPark ;
+             rdfs:comment "A park, not administered by the city council"@en ,
+                          "Un parque que no pertene al ayuntamiento"@es ;
+             rdfs:label "Parque privado"@es ,
+                        "Private park"@en .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#PublicPark
+:PublicPark rdf:type owl:Class ;
+            rdfs:subClassOf :Park ;
+            rdfs:comment "A park, property of the city council"@en ,
+                         "Un parque que pertenece al ayuntamiento"@es ;
+            rdfs:label "Public park"@en ,
+                       "parque público"@es .
+
+
+###  http://www.OurNonExistingOntologyDomain.org/ontology#TreeSpecie
+:TreeSpecie rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :partOf ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :Park
+                                ] ;
+            rdfs:comment "A particula tree specie"@en ,
+                         "Una especie concreta de árbol"@es ;
+            rdfs:label "Especie de árbol"@es ,
+                       "Tree specie"@en .
+
+
+###  http://www.opengis.net/ont/gml#PolygonPatch
+<http://www.opengis.net/ont/gml#PolygonPatch> rdf:type owl:Class ;
+                                              rdfs:comment "A poligonal area, to descibe a district or a park"@en ,
+                                                           "Área poligonal, que desribe la forma del parque o del distrito"@es ;
+                                              rdfs:isDefinedBy "Definida por: http://www.opengis.net/ont/gml"@es ,
+                                                               "Is deffined by: http://www.opengis.net/ont/gml"@en ;
+                                              rdfs:label "Polygon Patch"@en ,
+                                                         "Área Poligonal"@es .
+
+
+[ rdfs:comment [ ]
+] .
+
+[ :code ""
+ ] .
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
